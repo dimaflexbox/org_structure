@@ -26,12 +26,23 @@
         </tr>
       </tbody>
     </table>
+    <span style="width: 5rem; height: 5rem; background: red;">{{ $store.getters.getStructureList }}</span>
   </section>
 </template>
 
 <script>
 export default {
   name: 'List',
+  data() {
+    return {
+      
+    }
+  },
+  computed: {
+    todoList() {
+      return this.$store.getters.getStructureList;
+    }
+  },
 }
 </script>
 
@@ -61,7 +72,7 @@ export default {
   color: #fff;
 }
 
-.table__thead td {
+.table__thead td:not(:first-child) {
   border-left: 1px solid #7d8a94;
 }
 
