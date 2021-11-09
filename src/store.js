@@ -135,11 +135,10 @@ export default new Vuex.Store({
             ]
           },
         ],
-        test: 'Test'
     },
     getters: {
         getStructureList(state) {
-            return state.test;
+            return state.structureList;
         },
     },
     mutations: {

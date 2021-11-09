@@ -10,15 +10,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr v-for="(item, index) in structureList" :key="index">
           <td class="table__main-td">
             <div>
               <i class="fas fa-angle-right table__angle"></i> 
-              Алматы
+              {{ item.name }}
             </div>
           </td>
           <td>140</td>
-          <td>20</td>
+          <td>{{ item.count }}</td>
           <td>
             <i class="fas fa-pen table__icons table__icons_edit table_transition"></i>
             <i class="fas fa-times-circle table__icons table__icons_delete table_transition"></i>
@@ -26,7 +26,10 @@
         </tr>
       </tbody>
     </table>
-    <span style="width: 5rem; height: 5rem; background: red;">{{ $store.getters.getStructureList }}</span>
+    <!-- <span style="width: 5rem; height: 5rem; background: red;">{{ $store.getters.getStructureList }}</span> -->
+    <div v-for="(inner,index) in structureList" :key="index">
+      <div v-for="(innerSecond,index) in inner" :key="index">{{ innerSecond }}</div>
+    </div>
   </section>
 </template>
 
@@ -39,7 +42,7 @@ export default {
     }
   },
   computed: {
-    todoList() {
+    structureList() {
       return this.$store.getters.getStructureList;
     }
   },
