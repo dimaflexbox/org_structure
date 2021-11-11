@@ -10,32 +10,28 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in structureList" :key="index">
-          <td class="table__main-td">
-            <div>
-              <i class="fas fa-angle-right table__angle"></i> 
-              {{ item.name }}
-            </div>
-          </td>
-          <td>140</td>
-          <td>{{ item.count }}</td>
-          <td>
-            <i class="fas fa-pen table__icons table__icons_edit table_transition"></i>
-            <i class="fas fa-times-circle table__icons table__icons_delete table_transition"></i>
-          </td>
-        </tr>
+        <Item
+          v-for="(item, index) in structureList"
+          :key="index"
+          :item="item"
+        ></Item>
       </tbody>
     </table>
     <!-- <span style="width: 5rem; height: 5rem; background: red;">{{ $store.getters.getStructureList }}</span> -->
-    <div v-for="(inner,index) in structureList" :key="index">
+    <!-- <div v-for="(inner,index) in structureList" :key="index">
       <div v-for="(innerSecond,index) in inner" :key="index">{{ innerSecond }}</div>
-    </div>
+    </div> -->
   </section>
 </template>
 
 <script>
+import Item from './Item.vue';
+
 export default {
   name: 'List',
+  components: {
+    Item,
+  },
   data() {
     return {
       
@@ -43,7 +39,7 @@ export default {
   },
   computed: {
     structureList() {
-      return this.$store.getters.getStructureList;
+      return this.$store.getters.GETSTRUCTURELIST;
     }
   },
 }

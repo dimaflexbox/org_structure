@@ -137,9 +137,9 @@ export default new Vuex.Store({
         ],
     },
     getters: {
-        getStructureList(state) {
-            return state.structureList;
-        },
+      GETSTRUCTURELIST(state) {
+        return state.structureList;
+      },
     },
     mutations: {
       
