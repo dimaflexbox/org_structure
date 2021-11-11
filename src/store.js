@@ -142,6 +142,16 @@ export default new Vuex.Store({
       },
     },
     mutations: {
-      
+      toggleAdd(state, newTodo, newNumber){
+        state.structureList.push({
+          name: newTodo,
+          count: newNumber,
+        });
+      },
     },
+    actions: {
+      actionToggleAdd(context, newTodo, newNumber) {
+        context.commit('toggleAdd', newTodo, newNumber);
+      }
+    }
 });

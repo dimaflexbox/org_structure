@@ -1,13 +1,19 @@
 <template>
   <section class="new">
-      <div class="new__container new__container_dark">
+      <header class="new__container new__container_dark">
           <h1 class="new__header">Организационная структура</h1>
-      </div>
+      </header>
       <div class="new__container">
         <div>
-          <button type="button" class="button new__button new__button_blue-hover new_transition">
+          <input type="text" v-model="newTodo">
+          <input type="text" v-model="newNumber">
+          <button 
+            type="button" 
+            class="button new__button new__button_blue-hover new_transition"
+            @click="handleAddTodo"
+            >
             + Добавить
-            </button>
+          </button>
         </div>
       </div>
   </section>
@@ -16,6 +22,19 @@
 <script>
 export default {
   name: 'New',
+  data() {
+    return {
+      newTodo: '',
+      newNumber: 0,
+    }
+  },
+  methods: {
+    handleAddTodo: function() {
+      this.$store.dispatch('actionToggleAdd', this.newTodo, this.newNumber); // action
+      this.newTodo = "";
+      this.newNumber = "";
+    }
+  },
 }
 </script>
 
