@@ -5,20 +5,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        // structureList: [
-        //     {
-        //         task: 'Task 1',
-        //         isCompleated: false,
-        //     },
-        //     {
-        //         task: 'Task 2',
-        //         isCompleated: false,
-        //     },
-        //     {
-        //         task: 'Task 3',
-        //         isCompleated: false,
-        //     },
-        // ],
         structureList: [
           {
             "name": "Алматы",
@@ -142,16 +128,18 @@ export default new Vuex.Store({
       },
     },
     mutations: {
-      toggleAdd(state, newTodo, newNumber){
+      toggleAdd(state, addObject){
+        let newName = addObject.newName.name;
+        let newNumber = addObject.newNumber.name;
         state.structureList.push({
-          name: newTodo,
+          name: newName,
           count: newNumber,
         });
       },
     },
     actions: {
-      actionToggleAdd(context, newTodo, newNumber) {
-        context.commit('toggleAdd', newTodo, newNumber);
+      actionToggleAdd(context, addObject) {
+        context.commit('toggleAdd', addObject);
       }
     }
 });

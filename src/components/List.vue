@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="table-responsive">
     <table class="table">
       <thead class="table__thead">
         <tr>
@@ -17,10 +17,6 @@
         ></Item>
       </tbody>
     </table>
-    <!-- <span style="width: 5rem; height: 5rem; background: red;">{{ $store.getters.getStructureList }}</span> -->
-    <!-- <div v-for="(inner,index) in structureList" :key="index">
-      <div v-for="(innerSecond,index) in inner" :key="index">{{ innerSecond }}</div>
-    </div> -->
   </section>
 </template>
 
@@ -47,6 +43,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.table-responsive {
+  overflow-x: scroll;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -75,29 +75,4 @@ export default {
   border-left: 1px solid #7d8a94;
 }
 
-.table__angle {
-  padding-right: 1rem;
-}
-
-.table__icons {
-  padding: 1.3rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.table__icons_edit:hover {
-  color: orange;
-}
-
-.table__icons_delete:hover {
-  color: #d13e3e;
-}
-
-.table_transition {
-  transition: 0.3s ease-in-out;
-}
-
-.table__main-td {
-  cursor: pointer;
-}
 </style>
